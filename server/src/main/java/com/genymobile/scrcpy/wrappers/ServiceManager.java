@@ -20,6 +20,7 @@ public final class ServiceManager {
     private PowerManager powerManager;
     private StatusBarManager statusBarManager;
     private ClipboardManager clipboardManager;
+    private InputMethodManager inputMethodManager;
     private ActivityManager activityManager;
 
     public ServiceManager() {
@@ -95,7 +96,15 @@ public final class ServiceManager {
                 throw new AssertionError(e);
             }
         }
-
+        
         return activityManager;
     }
+
+    public InputMethodManager getInputMethodManager() {
+        if(inputMethodManager == null) {
+            inputMethodManager = new InputMethodManager(getService("input_method", "com.android.internal.view.IInputMethodManager"));
+        }
+        return inputMethodManager;
+    }
+
 }

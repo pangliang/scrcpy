@@ -82,6 +82,9 @@ control_msg_serialize(const struct control_msg *msg, unsigned char *buf) {
         case CONTROL_MSG_TYPE_ROTATE_DEVICE:
             // no additional data
             return 1;
+        case CONTROL_MSG_TYPE_SET_INJECT_TEXT_MODE:
+            buf[1] = msg->set_inject_text_mode.mode;
+            return 2;
         default:
             LOGW("Unknown message type: %u", (unsigned) msg->type);
             return 0;
