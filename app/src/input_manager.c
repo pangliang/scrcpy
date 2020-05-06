@@ -248,15 +248,6 @@ rotate_client_right(struct screen *screen) {
 void
 input_manager_process_text_input(struct input_manager *im,
                                  const SDL_TextInputEvent *event) {
-    if (!im->prefer_text) {
-        char c = event->text[0];
-        if (isalpha(c) || c == ' ') {
-            assert(event->text[1] == '\0');
-            // letters and space are handled as raw key event
-            return;
-        }
-    }
-
     struct control_msg msg;
     msg.type = CONTROL_MSG_TYPE_INJECT_TEXT;
     msg.inject_text.text = SDL_strdup(event->text);
