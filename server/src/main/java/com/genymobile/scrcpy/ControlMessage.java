@@ -16,7 +16,7 @@ public final class ControlMessage {
     public static final int TYPE_SET_CLIPBOARD = 8;
     public static final int TYPE_SET_SCREEN_POWER_MODE = 9;
     public static final int TYPE_ROTATE_DEVICE = 10;
-    public static final int TYPE_SET_INJECT_TEXT_MODE = 10;
+    public static final int TYPE_SET_INJECT_TEXT_MODE = 11;
 
     private int type;
     private String text;
